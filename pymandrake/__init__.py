@@ -1,0 +1,1 @@
+from pluginbase import Plugin
