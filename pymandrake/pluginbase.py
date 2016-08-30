@@ -59,7 +59,7 @@ class Plugin:
 		method_name = 'Analyze'
 		if self.__plugin_type == 'Logger':
 			method_name = 'Log'
-		self.rpc = pyjsonrpc.JsonRpc(methods = {'%s.%s' % (self.__NAME__ , self.__plugin_type): method})
+		self.rpc = pyjsonrpc.JsonRpc(methods = {'%s.%s' % (self.__NAME__ , method_name): method})
 		line = sys.stdin.readline()
 
 		while line:
