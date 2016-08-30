@@ -10,9 +10,10 @@ from datetime import datetime
 
 class Plugin:
 
-	def __init__(self, name='Python_BASE'):
+	def __init__(self, name='Python_BASE', plugin_type='analyzer'):
 
 		self.__NAME__ = name
+		self.__plugin_type = plugin_type
 		self.log('Initializing plugin.')
 		self.queue = Queue.Queue()
 		self.printer_thread = threading.Thread(target=self.printer)
@@ -55,7 +56,10 @@ class Plugin:
 
 	def listen(self, method):
 		'''Listen for JSON RPC method calls.'''
-		self.rpc = pyjsonrpc.JsonRpc(methods = {'%s.Analyze' % self.__NAME__ : method})
+		method_name = 'Analyze'
+		if self.__plugin_type == 'Logger':
+			method_name = 'Log'
+		self.rpc = pyjsonrpc.JsonRpc(methods = {'%s.%s' % (self.__NAME__ , self.__plugin_type): method})
 		line = sys.stdin.readline()
 
 		while line:
