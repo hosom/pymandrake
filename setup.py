@@ -10,6 +10,6 @@ setup(name='pymandrake',
 		url='https://github.com/hosom/pymandrake',
 		packages=['pymandrake'],
 		install_requires=[
-			'pyjsonrpc',
+			'python-jsonrpc',
 		],
 		)
