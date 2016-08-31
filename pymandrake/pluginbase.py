@@ -8,6 +8,16 @@ import pyjsonrpc
 
 from datetime import datetime
 
+def to_unicode(obj, encoding='utf-8')
+	'''Make strings unicode safe for stdout/stdin.
+	'''
+	if isinstance(obj, basestring):
+		if not isinstance(obj, unicode):
+			obj = unicode(obj, encoding, errors='replace')
+
+	return obj
+
+
 class Plugin:
 
 	def __init__(self, name='Python_BASE', plugin_type='analyzer'):
