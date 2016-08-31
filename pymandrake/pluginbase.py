@@ -8,7 +8,7 @@ import pyjsonrpc
 
 from datetime import datetime
 
-def to_unicode(obj, encoding='utf-8')
+def to_unicode(obj, encoding='utf-8'):
 	'''Make strings unicode safe for stdout/stdin.
 	'''
 	if isinstance(obj, basestring):
