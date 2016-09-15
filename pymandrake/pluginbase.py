@@ -60,7 +60,6 @@ class Plugin:
 	def worker(self, line):
 		'''Worker thread that handles RPC server calls.'''
 		out = self.rpc.call(line)
-		self.log(out)
 		self.queue.put(out)
 		return
 
